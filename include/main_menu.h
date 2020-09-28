@@ -7,6 +7,7 @@ void Task_NewGameBirchSpeech_AndYouAre(u8);
 void Task_NewGameBirchSpeech_StartBirchLotadPlatformFade(u8);
 void Task_NewGameBirchSpeech_ChooseGender(u8 taskId);
 void Task_NewGameBirchSpeech_WaitToShowGenderMenu(u8);
-void InitTextWindow(const u8*);
+void Task_NewGameBirchSpeech_StartPlayerFadeIn(u8);
+void InitTextWindow();
 
 #endif // GUARD_MAIN_MENU_H
