@@ -46,6 +46,7 @@ SECTIONS {
     {
         src/crt0.o(.text);
         src/*.o(.text);
+        src/custom/*.o(.text);
         gflib/*.o(.text);
         asm/*.o(.text);
     } =0
@@ -80,6 +81,7 @@ SECTIONS {
     ALIGN(4)
     {
         src/*.o(.rodata*);
+        src/custom/*.o(.rodata*);
         gflib/*.o(.rodata*);
         data/*.o(.rodata*);
     } =0
