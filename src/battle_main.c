@@ -3839,23 +3839,23 @@ static void HandleTurnActionSelectionState(void)
                     }
                     break;
                 case B_ACTION_USE_ITEM:
-                    if (gBattleTypeFlags & (BATTLE_TYPE_LINK
+                    /*if (gBattleTypeFlags & (BATTLE_TYPE_LINK                  // Checks if items can be used in battle
                                             | BATTLE_TYPE_FRONTIER_NO_PYRAMID
                                             | BATTLE_TYPE_EREADER_TRAINER
                                             | BATTLE_TYPE_x2000000))
-                    {
+                    {*/
                         RecordedBattle_ClearBattlerAction(gActiveBattler, 1);
                         gSelectionBattleScripts[gActiveBattler] = BattleScript_ActionSelectionItemsCantBeUsed;
                         gBattleCommunication[gActiveBattler] = STATE_SELECTION_SCRIPT;
                         *(gBattleStruct->selectionScriptFinished + gActiveBattler) = FALSE;
                         *(gBattleStruct->stateIdAfterSelScript + gActiveBattler) = STATE_BEFORE_ACTION_CHOSEN;
                         return;
-                    }
-                    else
-                    {
-                        BtlController_EmitChooseItem(0, gBattleStruct->field_60[gActiveBattler]);
-                        MarkBattlerForControllerExec(gActiveBattler);
-                    }
+                    //}
+                    //else
+                    //{
+                        //BtlController_EmitChooseItem(0, gBattleStruct->field_60[gActiveBattler]);
+                        //MarkBattlerForControllerExec(gActiveBattler);
+                    //}
                     break;
                 case B_ACTION_SWITCH:
                     *(gBattleStruct->field_58 + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
