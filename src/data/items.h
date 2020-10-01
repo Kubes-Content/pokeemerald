@@ -1,5 +1,6 @@
 const struct Item gItems[] =
     {
+
         [ITEM_NONE] =
             {
                 .name = _("????????"),
