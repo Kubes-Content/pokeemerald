@@ -428,78 +428,13 @@ static void SetDefaultPlayerName(u8 nameId)
 //
 static void CB2_ReturnFromNamingScreen(void)
 {
-    //u8 taskId;
-    //u8 spriteId;
     u16 savedIme;
 
-    /*ResetBgsAndClearDma3BusyFlags(0);
-    SetGpuReg(REG_OFFSET_DISPCNT, 0);
-    SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
-    InitBgsFromTemplates(0, sMainMenuBgTemplates, 2);
-    InitBgFromTemplate(&sNewGameBgTemplate);*/
     SetVBlankCallback(NULL);
-    /*SetGpuReg(REG_OFFSET_BG2CNT, 0);
-    SetGpuReg(REG_OFFSET_BG1CNT, 0);
-    SetGpuReg(REG_OFFSET_BG0CNT, 0);
-    SetGpuReg(REG_OFFSET_BG2HOFS, 0);
-    SetGpuReg(REG_OFFSET_BG2VOFS, 0);
-    SetGpuReg(REG_OFFSET_BG1HOFS, 0);
-    SetGpuReg(REG_OFFSET_BG1VOFS, 0);
-    SetGpuReg(REG_OFFSET_BG0HOFS, 0);
-    SetGpuReg(REG_OFFSET_BG0VOFS, 0);
-    DmaFill16(3, 0, VRAM, VRAM_SIZE);
-    DmaFill32(3, 0, OAM, OAM_SIZE);
-    DmaFill16(3, 0, PLTT, PLTT_SIZE);
-    ResetPaletteFade();
-    LZ77UnCompVram(sNewGameShadowGfx, (u8 *)VRAM);
-    LZ77UnCompVram(sBirchSpeechBgMap, (u8 *)(BG_SCREEN_ADDR(7)));
-    LoadPalette(sNewGameBgPals, 0, 64);
-    LoadPalette(&bgGradientPal[1], 1, 16);
-    ResetTasks();
-    taskId = CreateTask(Task_ReturnFromNamingScreenShowTextbox, 0);
-    gTasks[taskId].tTimer = 5;
-    gTasks[taskId].tBG1HOFS = -60;
-    ScanlineEffect_Stop();
-    ResetSpriteData();
-    FreeAllSpritePalettes();
-    ResetAllPicSprites();
-    //AddBirchSpeechObjects(taskId);
-    if (gSaveBlock2Ptr->playerGender != MALE)
-    {
-        gTasks[taskId].tPlayerGender = FEMALE;
-        spriteId = gTasks[taskId].tMaySpriteId;
-    }
-    else
-    {
-        gTasks[taskId].tPlayerGender = MALE;
-        spriteId = gTasks[taskId].tBrendanSpriteId;
-    }
-    gSprites[spriteId].pos1.x = 180;
-    gSprites[spriteId].pos1.y = 60;
-    gSprites[spriteId].invisible = FALSE;
-    gTasks[taskId].tPlayerSpriteId = spriteId;
-    SetGpuReg(REG_OFFSET_BG1HOFS, -60);
-    BeginNormalPaletteFade(0xFFFFFFFF, 0, 16, 0, RGB_BLACK);
-    SetGpuReg(REG_OFFSET_WIN0H, 0);
-    SetGpuReg(REG_OFFSET_WIN0V, 0);
-    SetGpuReg(REG_OFFSET_WININ, 0);
-    SetGpuReg(REG_OFFSET_WINOUT, 0);
-    SetGpuReg(REG_OFFSET_BLDCNT, 0);
-    SetGpuReg(REG_OFFSET_BLDALPHA, 0);
-    SetGpuReg(REG_OFFSET_BLDY, 0);
-    ShowBg(0);
-    ShowBg(1);*/
     savedIme = REG_IME;
     REG_IME = 0;
     REG_IE |= 1;
     REG_IME = savedIme;
-    //SetVBlankCallback(VBlankCB_MainMenu);
-    //SetMainCallback2(CB2_MainMenu);
-    //InitWindows(gTextWindowsTemplate);
-    //LoadMainMenuWindowFrameTiles(0, 0xF3);
-    //LoadMessageBoxGfx(0, 0xFC, 0xF0);
-    //PutWindowTilemap(0);
-    //CopyWindowToVram(0, 3);
 
     CB2_NewGame();
 }
