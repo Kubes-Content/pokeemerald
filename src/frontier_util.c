@@ -15,7 +15,7 @@
 #include "battle_records.h"
 #include "international_string_util.h"
 #include "string_util.h"
-#include "new_game.h"
+#include "custom/new_game.h"
 #include "link.h"
 #include "tv.h"
 #include "apprentice.h"

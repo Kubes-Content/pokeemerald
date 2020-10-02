@@ -1,4 +1,4 @@
-#include "global.h"
+/*#include "global.h"
 #include "new_game.h"
 #include "random.h"
 #include "pokemon.h"
@@ -214,4 +214,4 @@ static void ResetMiniGamesResults(void)
     SetBerryPowder(&gSaveBlock2Ptr->berryCrush.berryPowderAmount, 0);
     ResetPokeJumpResults();
     CpuFill16(0, &gSaveBlock2Ptr->berryPick, sizeof(struct BerryPickingResults));
-}
+}*/

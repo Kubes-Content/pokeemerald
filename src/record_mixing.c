@@ -30,7 +30,7 @@
 #include "strings.h"
 #include "string_util.h"
 #include "record_mixing.h"
-#include "new_game.h"
+#include "custom/new_game.h"
 #include "daycare.h"
 #include "international_string_util.h"
 #include "constants/battle_frontier.h"
@@ -959,7 +959,7 @@ static void Task_DoRecordMixing(u8 taskId)
         else
             task->data[0] = 6;
         break;
-    
+
     // Mixing Ruby/Sapphire records.
     case 2:
         SetContinueGameWarpStatusToDynamicWarp();

@@ -1,4 +1,4 @@
-#ifndef GUARD_NEW_GAME_H
+/*#ifndef GUARD_NEW_GAME_H
 #define GUARD_NEW_GAME_H
 
 extern bool8 gDifferentSaveFile;
@@ -14,3 +14,4 @@ void ResetMenuAndMonGlobals(void);
 void Sav2_ClearSetDefault(void);
 
 #endif // GUARD_NEW_GAME_H
+*/

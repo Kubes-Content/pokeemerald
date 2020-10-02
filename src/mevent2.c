@@ -7,7 +7,7 @@
 #include "battle_tower.h"
 #include "mevent_news.h"
 #include "string_util.h"
-#include "new_game.h"
+#include "custom/new_game.h"
 #include "mevent.h"
 #include "constants/mevent.h"
 #include "constants/species.h"

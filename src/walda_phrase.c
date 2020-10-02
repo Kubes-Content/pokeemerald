@@ -5,7 +5,7 @@
 #include "naming_screen.h"
 #include "main.h"
 #include "text.h"
-#include "new_game.h"
+#include "custom/new_game.h"
 #include "overworld.h"
 #include "pokemon_storage_system.h"
 #include "field_screen_effect.h"

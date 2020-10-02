@@ -22,7 +22,7 @@
 #include "load_save.h"
 #include "main.h"
 #include "menu.h"
-#include "new_game.h"
+#include "custom/new_game.h"
 #include "option_menu.h"
 #include "overworld.h"
 #include "palette.h"

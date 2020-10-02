@@ -16,7 +16,7 @@
 #include "overworld.h"
 #include "palette.h"
 #include "random.h"
-#include "new_game.h"
+#include "custom/new_game.h"
 #include "script.h"
 #include "sound.h"
 #include "sprite.h"
@@ -951,39 +951,39 @@ const struct SpriteTemplate sSpriteTemplates_ContestantsTurnBlinkEffect[CONTESTA
 
 static const s8 gContestExcitementTable[CONTEST_CATEGORIES_COUNT][CONTEST_CATEGORIES_COUNT] =
 {
-    [CONTEST_CATEGORY_COOL] = { 
-        [CONTEST_CATEGORY_COOL]   = +1,  
-        [CONTEST_CATEGORY_BEAUTY] =  0, 
-        [CONTEST_CATEGORY_CUTE]   = -1, 
-        [CONTEST_CATEGORY_SMART]  = -1,  
+    [CONTEST_CATEGORY_COOL] = {
+        [CONTEST_CATEGORY_COOL]   = +1,
+        [CONTEST_CATEGORY_BEAUTY] =  0,
+        [CONTEST_CATEGORY_CUTE]   = -1,
+        [CONTEST_CATEGORY_SMART]  = -1,
         [CONTEST_CATEGORY_TOUGH]  =  0
     },
-    [CONTEST_CATEGORY_BEAUTY] = { 
-        [CONTEST_CATEGORY_COOL]   =  0,  
-        [CONTEST_CATEGORY_BEAUTY] = +1,  
-        [CONTEST_CATEGORY_CUTE]   =  0, 
-        [CONTEST_CATEGORY_SMART]  = -1, 
+    [CONTEST_CATEGORY_BEAUTY] = {
+        [CONTEST_CATEGORY_COOL]   =  0,
+        [CONTEST_CATEGORY_BEAUTY] = +1,
+        [CONTEST_CATEGORY_CUTE]   =  0,
+        [CONTEST_CATEGORY_SMART]  = -1,
         [CONTEST_CATEGORY_TOUGH]  = -1
     },
     [CONTEST_CATEGORY_CUTE] = {
-        [CONTEST_CATEGORY_COOL]   = -1,  
-        [CONTEST_CATEGORY_BEAUTY] =  0,  
-        [CONTEST_CATEGORY_CUTE]   = +1,  
-        [CONTEST_CATEGORY_SMART]  =  0, 
+        [CONTEST_CATEGORY_COOL]   = -1,
+        [CONTEST_CATEGORY_BEAUTY] =  0,
+        [CONTEST_CATEGORY_CUTE]   = +1,
+        [CONTEST_CATEGORY_SMART]  =  0,
         [CONTEST_CATEGORY_TOUGH]  = -1
     },
     [CONTEST_CATEGORY_SMART] = {
-        [CONTEST_CATEGORY_COOL]   = -1, 
-        [CONTEST_CATEGORY_BEAUTY] = -1,  
-        [CONTEST_CATEGORY_CUTE]   =  0,  
-        [CONTEST_CATEGORY_SMART]  = +1,  
+        [CONTEST_CATEGORY_COOL]   = -1,
+        [CONTEST_CATEGORY_BEAUTY] = -1,
+        [CONTEST_CATEGORY_CUTE]   =  0,
+        [CONTEST_CATEGORY_SMART]  = +1,
         [CONTEST_CATEGORY_TOUGH]  =  0
     },
-    [CONTEST_CATEGORY_TOUGH] = { 
-        [CONTEST_CATEGORY_COOL]   =  0, 
-        [CONTEST_CATEGORY_BEAUTY] = -1, 
-        [CONTEST_CATEGORY_CUTE]   = -1,  
-        [CONTEST_CATEGORY_SMART]  =  0,  
+    [CONTEST_CATEGORY_TOUGH] = {
+        [CONTEST_CATEGORY_COOL]   =  0,
+        [CONTEST_CATEGORY_BEAUTY] = -1,
+        [CONTEST_CATEGORY_CUTE]   = -1,
+        [CONTEST_CATEGORY_SMART]  =  0,
         [CONTEST_CATEGORY_TOUGH]  = +1
     }
 };
@@ -1100,10 +1100,10 @@ static void InitContestResources(void)
     eContestAI = (struct ContestAIInfo){};
     *gContestResources->excitement = (struct ContestExcitement){};
     memset(eContestGfxState, 0, CONTESTANT_COUNT * sizeof(struct ContestGraphicsState));
-    
+
     if (!(gLinkContestFlags & LINK_CONTEST_FLAG_IS_LINK))
         SortContestants(FALSE);
-    
+
     for (i = 0; i < CONTESTANT_COUNT; i++)
     {
         eContestantStatus[i].nextTurnOrder = 0xFF;
@@ -3341,9 +3341,9 @@ static bool8 DrawStatusSymbol(u8 contestant)
     u16 symbolOffset = 0;
     u8 contestantOffset = gContestantTurnOrder[contestant] * 5 + 2;
 
-    if (eContestantStatus[contestant].resistant 
-     || eContestantStatus[contestant].immune 
-     || eContestantStatus[contestant].jamSafetyCount != 0 
+    if (eContestantStatus[contestant].resistant
+     || eContestantStatus[contestant].immune
+     || eContestantStatus[contestant].jamSafetyCount != 0
      || eContestantStatus[contestant].jamReduction != 0)
         symbolOffset = GetStatusSymbolTileOffset(STAT_SYMBOL_CIRCLE);
     else if (eContestantStatus[contestant].nervous)
@@ -4332,7 +4332,7 @@ void SortContestants(bool8 useRanking)
                     s32 j;
                     for (j = i; j > v3; j--)
                         gContestantTurnOrder[j] = gContestantTurnOrder[j - 1];
-                        
+
                     // Insert into the new spot.
                     gContestantTurnOrder[v3] = i;
                     break;
@@ -4347,7 +4347,7 @@ void SortContestants(bool8 useRanking)
         }
 
         // Invert gContestantTurnOrder; above, it was a list of contestant IDs. Now it's a list of turn orderings.
-        // 
+        //
         // For example, if contestant 3 had the first turn, then `gContestantTurnOrder[1] = 3`. The turn is the index,
         // the contestant is the data. After inverting the list, `gContestantTurnOrder[3] = 1`. The contestant is the index,
         // and the turn is the data.
@@ -4382,7 +4382,7 @@ void SortContestants(bool8 useRanking)
         }
 
         // Randomize the order of contestants with tied rankings using Selection Sort.
-        // 
+        //
         // Look through the array for tied ranks, and use randomOrdering to break the tie.
         // This ensures that contestants with the same rank will be randomly ordered. This
         // uses an in-place slection sort, which involves a lot of extra swapping.
@@ -4756,13 +4756,13 @@ static void Task_ApplauseOverflowAnimation(u8 taskId)
     if (++gTasks[taskId].data[0] == 1)
     {
         gTasks[taskId].data[0] = 0;
-        
+
         // Alternate between normal colors and white.
         if (gTasks[taskId].data[3] == 0)
             gTasks[taskId].data[4]++;
         else
             gTasks[taskId].data[4]--;
-        
+
         BlendPalette(264 + gTasks[taskId].data[2] * 16, 1, gTasks[taskId].data[4], RGB_WHITE);
 
         // At the maximum or minimum blending, switch directions.
@@ -5937,7 +5937,7 @@ static void ContestDebugPrintBitStrings(void)
 
     if (!gEnableContestDebugging)
         return;
-    
+
     if (eContestDebugMode != CONTEST_DEBUG_MODE_PRINT_WINNER_FLAGS && eContestDebugMode != CONTEST_DEBUG_MODE_PRINT_LOSER_FLAGS)
         return;
 

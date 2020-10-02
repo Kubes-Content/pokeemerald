@@ -4,7 +4,7 @@
 #include "m4a.h"
 #include "load_save.h"
 #include "save.h"
-#include "new_game.h"
+#include "custom/new_game.h"
 #include "overworld.h"
 #include "malloc.h"
 

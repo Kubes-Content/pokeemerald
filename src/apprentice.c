@@ -12,7 +12,7 @@
 #include "main.h"
 #include "malloc.h"
 #include "menu.h"
-#include "new_game.h"
+#include "custom/new_game.h"
 #include "party_menu.h"
 #include "random.h"
 #include "script.h"
