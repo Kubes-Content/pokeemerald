@@ -74,7 +74,7 @@ extern const u8 EventScript_ResetAllMapFlags[];
 
 // this file's functions
 static void ClearFrontierRecord(void);
-static void WarpToTruck(void);
+static void WarpToPlayersHouse(void);
 static void ResetMiniGamesResults(void);
 
 // EWRAM vars
@@ -298,9 +298,9 @@ static void ClearFrontierRecord(void)
     gSaveBlock2Ptr->frontier.opponentNames[1][0] = EOS;
 }
 
-static void WarpToTruck(void)
+static void WarpToPlayersHouse(void)
 {
-    SetWarpDestination(MAP_GROUP(INSIDE_OF_TRUCK), MAP_NUM(INSIDE_OF_TRUCK), -1, -1, -1);
+    SetWarpDestination(MAP_GROUP(HOME_TOWN), MAP_NUM(HOME_TOWN), 0, 2, 2);
     WarpIntoMap();
 }
 
@@ -366,7 +366,7 @@ void NewGameInitData(void)
     InitDewfordTrend();
     ResetFanClub();
     ResetLotteryCorner();
-    WarpToTruck();
+    WarpToPlayersHouse();
     ScriptContext2_RunNewScript(EventScript_ResetAllMapFlags);
     ResetMiniGamesResults();
     InitUnionRoomChatRegisteredTexts();
@@ -669,7 +669,7 @@ void BeginNewGame(void)
     PlayTimeCounter_Start();
     ScriptContext1_Init();
     ScriptContext2_Disable();
-    gFieldCallback = ExecuteTruckSequence;
+    gFieldCallback = NULL; //ExecuteTruckSequence;
     gFieldCallback2 = NULL;
     DoMapLoadLoop(&gMain.state);
     SetFieldVBlankCallback();
