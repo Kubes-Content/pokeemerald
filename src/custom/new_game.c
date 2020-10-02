@@ -11,6 +11,7 @@
 #include "palette.h"
 #include "random.h"
 #include "constants/rgb.h"
+#include "safari_zone.h"
 #include "scanline_effect.h"
 #include "constants/songs.h"
 #include "sound.h"
@@ -231,6 +232,9 @@ static void Task_StartNamingScreen(u8);
 static void SetDefaultPlayerName(u8);
 static void CB2_ReturnFromNamingScreen(void);
 static void Task_ReturnFromNamingScreenShowTextbox(u8);
+
+// Begin New Game
+void BeginNewGame(void);
 
 // code
 void SetTrainerId(u32 trainerId, u8 *dst)
@@ -652,7 +656,25 @@ static void CB2_ReturnFromNamingScreen(void)
     REG_IE |= 1;
     REG_IME = savedIme;
 
-    CB2_NewGame();
+    BeginNewGame();
+}
+//
+void BeginNewGame(void)
+{
+    FieldClearVBlankHBlankCallbacks();
+    StopMapMusic();
+    ResetSafariZoneFlag();
+    NewGameInitData();
+    ResetInitialPlayerAvatarState();
+    PlayTimeCounter_Start();
+    ScriptContext1_Init();
+    ScriptContext2_Disable();
+    gFieldCallback = ExecuteTruckSequence;
+    gFieldCallback2 = NULL;
+    DoMapLoadLoop(&gMain.state);
+    SetFieldVBlankCallback();
+    SetMainCallback1(CB1_Overworld);
+    SetMainCallback2(CB2_Overworld);
 }
 
 #undef tPlayerSpriteId

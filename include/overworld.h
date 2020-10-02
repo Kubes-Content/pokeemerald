@@ -15,7 +15,7 @@
 
 // These two are a hack to stop user input until link stuff can be
 // resolved.
-#define LINK_KEY_CODE_HANDLE_RECV_QUEUE 0x1B 
+#define LINK_KEY_CODE_HANDLE_RECV_QUEUE 0x1B
 #define LINK_KEY_CODE_HANDLE_SEND_QUEUE 0x1C
 #define LINK_KEY_CODE_UNK_7 0x1D
 #define LINK_KEY_CODE_UNK_8 0x1E
@@ -157,5 +157,9 @@ bool32 sub_80875C8(void);
 bool32 sub_8087634(void);
 bool32 sub_808766C(void);
 void ClearLinkPlayerObjectEvents(void);
+
+void FieldClearVBlankHBlankCallbacks(void);
+void DoMapLoadLoop(u8 *state);
+void SetFieldVBlankCallback(void);
 
 #endif // GUARD_OVERWORLD_H
