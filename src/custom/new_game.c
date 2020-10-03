@@ -22,12 +22,12 @@
 #include "text_window.h"
 #include "trainer_pokemon_sprites.h"
 #include "window.h"
+#include "custom/pokemon_extensions.h"
+#include "constants/species.h"
+#include "constants/items.h"
 
 //
 
-
-
-#include "pokemon.h"
 #include "roamer.h"
 #include "pokemon_size_record.h"
 #include "script.h"
@@ -675,6 +675,9 @@ void BeginNewGame(void)
     SetFieldVBlankCallback();
     SetMainCallback1(CB1_Overworld);
     SetMainCallback2(CB2_Overworld);
+
+    CreateAndGiveMonToPlayer(SPECIES_TOTODILE, 4); // DEBUG
+    AddBagItem(ITEM_POTION, 6);
 }
 
 #undef tPlayerSpriteId

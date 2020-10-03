@@ -2,8 +2,9 @@
   "layouts_table_label": "gMapLayouts",
   "group_order": [
     "HomeTownGroup",
-    "Route1Group",
     "MidTownGroup",
+    "Tier1LeftGymGroup",
+    "Tier1RightGymGroup",
     "gMapGroup0",
     "gMapGroup1",
     "gMapGroup2",
@@ -40,12 +41,16 @@
     "gMapGroup33"
   ],
   "HomeTownGroup": [
-    "HomeTown"
-  ],
-  "Route1Group": [
+    "HomeTown",
     "Route1"
   ],
   "MidTownGroup": [
+
+  ],
+  "Tier1LeftGymGroup": [
+
+  ],
+  "Tier1RightGymGroup": [
 
   ],
   "gMapGroup0": [
