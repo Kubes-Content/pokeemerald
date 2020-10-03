@@ -13,6 +13,7 @@
 #define MAP_MID_TOWN (0 | (1 << 8))
 
 // Map Group 2
+#define MAP_ROUTE2 (0 | (2 << 8))
 
 // Map Group 3
 

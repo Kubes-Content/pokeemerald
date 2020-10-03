@@ -1066,3 +1066,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/Route1/scripts.inc"
 
 	.include "data/maps/MidTown/scripts.inc"
+
+	.include "data/maps/Route2/scripts.inc"

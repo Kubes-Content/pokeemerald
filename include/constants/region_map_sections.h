@@ -216,7 +216,9 @@
 #define MAPSEC_TRAINER_HILL                 0xD4
 #define MAPSEC_NONE                         0xD5
 #define MAPSEC_HOME_TOWN                    0xD6
-
+#define MAPSEC_MID_TOWN                     0xD7
+#define MAPSEC_TIER1_LEFT_GYM               0xD8
+#define MAPSEC_TIER1_RIGHT_GYM              0xD9
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

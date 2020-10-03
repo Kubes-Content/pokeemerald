@@ -4440,6 +4440,16 @@
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/MidTown/border.bin",
       "blockdata_filepath": "data/layouts/MidTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE2",
+      "name": "Route2_Layout",
+      "width": 60,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/Route2/border.bin",
+      "blockdata_filepath": "data/layouts/Route2/map.bin"
     }
   ]
 }

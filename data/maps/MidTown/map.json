@@ -2,8 +2,8 @@
   "id": "MAP_MID_TOWN",
   "name": "MidTown",
   "layout": "LAYOUT_MID_TOWN",
-  "music": "MUS_ABANDONED_SHIP",
-  "region_map_section": "MAPSEC_NONE",
+  "music": "MUS_VERDANTURF",
+  "region_map_section": "MAPSEC_MID_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_TOWN",
@@ -17,6 +17,11 @@
       "direction": "left",
       "offset": -32,
       "map": "MAP_ROUTE1"
+    },
+    {
+      "direction": "left",
+      "offset": 14,
+      "map": "MAP_ROUTE2"
     }
   ],
   "object_events": [
