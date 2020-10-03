@@ -1,7 +1,9 @@
 {
   "layouts_table_label": "gMapLayouts",
   "group_order": [
-    "kMapGroup0",
+    "HomeTownGroup",
+    "Route1Group",
+    "MidTownGroup",
     "gMapGroup0",
     "gMapGroup1",
     "gMapGroup2",
@@ -37,8 +39,14 @@
     "gMapGroup32",
     "gMapGroup33"
   ],
-  "kMapGroup0": [
+  "HomeTownGroup": [
     "HomeTown"
+  ],
+  "Route1Group": [
+    "Route1"
+  ],
+  "MidTownGroup": [
+
   ],
   "gMapGroup0": [
     "PetalburgCity",

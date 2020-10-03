@@ -4420,6 +4420,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/HomeTown/border.bin",
       "blockdata_filepath": "data/layouts/HomeTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE1",
+      "name": "Route1_Layout",
+      "width": 20,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/Route1/border.bin",
+      "blockdata_filepath": "data/layouts/Route1/map.bin"
     }
   ]
 }
