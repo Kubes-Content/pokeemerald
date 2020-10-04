@@ -26,6 +26,11 @@
 #include "constants/species.h"
 #include "constants/weather.h"
 
+#include "custom/printf.h"
+#include "custom/mgba.h"
+#include "data.h"
+#include "string_util.h"
+
 extern const u8 EventScript_RepelWoreOff[];
 
 #define NUM_FEEBAS_SPOTS    6
@@ -373,6 +378,7 @@ static void CreateWildMon(u16 species, u8 level)
         return;
     }
 
+    mgba_printf(MGBA_LOG_DEBUG, "#%d %s appeared.", species, ConvertToAscii(gSpeciesNames[species]));
     CreateMonWithNature(&gEnemyParty[0], species, level, 32, PickWildMonNature());
 }
 
