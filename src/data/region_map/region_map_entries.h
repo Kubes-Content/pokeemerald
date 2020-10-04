@@ -415,6 +415,9 @@ const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_NAVEL_ROCK] = {0, 0, 1, 1, sMapName_NavelRock},
     [MAPSEC_TRAINER_HILL] = {8, 4, 1, 1, sMapName_TrainerHill},
     [MAPSEC_HOME_TOWN] = {4, 10, 1, 1, sMapName_HomeTown},
+    [MAPSEC_MID_TOWN] = {4, 10, 1, 1, sMapName_HomeTown},
+    [MAPSEC_TIER1_LEFT_GYM] = {4, 10, 1, 1, sMapName_HomeTown},
+    [MAPSEC_TIER1_RIGHT_GYM] = {4, 10, 1, 1, sMapName_HomeTown},
 };
 
 #endif //GUARD_DATA_REGION_MAP_REGION_MAP_ENTRIES_H
