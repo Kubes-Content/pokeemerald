@@ -4450,6 +4450,26 @@
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Route2/border.bin",
       "blockdata_filepath": "data/layouts/Route2/map.bin"
+    },
+    {
+      "id": "LAYOUT_LEFT_GYM_ZONE",
+      "name": "LeftGymZone_Layout",
+      "width": 30,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/LeftGymZone/border.bin",
+      "blockdata_filepath": "data/layouts/LeftGymZone/map.bin"
+    },
+    {
+      "id": "LAYOUT_LEFT_GYM_1F",
+      "name": "LeftGym_1F_Layout",
+      "width": 40,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/LeftGym_1F/border.bin",
+      "blockdata_filepath": "data/layouts/LeftGym_1F/map.bin"
     }
   ]
 }

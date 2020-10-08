@@ -9,7 +9,9 @@
 #define MAP_MID_TOWN (0 | (1 << 8))
 
 // Map Group 2
-#define MAP_ROUTE2 (0 | (2 << 8))
+#define MAP_ROUTE2        (0 | (2 << 8))
+#define MAP_LEFT_GYM_ZONE (1 | (2 << 8))
+#define MAP_LEFT_GYM_1F   (2 | (2 << 8))
 
 // Map Group 3
 

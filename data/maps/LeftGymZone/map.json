@@ -1,0 +1,40 @@
+{
+  "id": "MAP_LEFT_GYM_ZONE",
+  "name": "LeftGymZone",
+  "layout": "LAYOUT_LEFT_GYM_ZONE",
+  "music": "MUS_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_TIER1_LEFT_GYM",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "direction": "right",
+      "offset": -25,
+      "map": "MAP_ROUTE2"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 5,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_LEFT_GYM_ZONE",
+      "dest_warp_id": 0
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

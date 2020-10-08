@@ -1068,3 +1068,7 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/MidTown/scripts.inc"
 
 	.include "data/maps/Route2/scripts.inc"
+
+	.include "data/maps/LeftGymZone/scripts.inc"
+
+	.include "data/maps/LeftGym_1F/scripts.inc"

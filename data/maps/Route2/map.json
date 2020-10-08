@@ -17,6 +17,11 @@
       "direction": "right",
       "offset": -14,
       "map": "MAP_MID_TOWN"
+    },
+    {
+      "direction": "left",
+      "offset": 25,
+      "map": "MAP_LEFT_GYM_ZONE"
     }
   ],
   "object_events": [

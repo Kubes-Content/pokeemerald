@@ -48,7 +48,9 @@
     "MidTown"
   ],
   "Tier1LeftGymGroup": [
-    "Route2"
+    "Route2",
+    "LeftGymZone",
+    "LeftGym_1F"
   ],
   "Tier1RightGymGroup": [
 
