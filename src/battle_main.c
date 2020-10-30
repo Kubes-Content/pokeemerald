@@ -63,6 +63,8 @@
 #include "constants/trainers.h"
 #include "cable_club.h"
 
+#define DYNAMIC_TRAINER_LEVELS
+
 extern struct MusicPlayerInfo gMPlayInfo_SE1;
 extern struct MusicPlayerInfo gMPlayInfo_SE2;
 
@@ -137,6 +139,10 @@ static void HandleAction_WallyBallThrow(void);
 static void HandleAction_TryFinish(void);
 static void HandleAction_NothingIsFainted(void);
 static void HandleAction_ActionFinished(void);
+
+#ifdef DYNAMIC_TRAINER_LEVELS
+u16 HasLevelEvolution(u16 species, u8 level);
+#endif // #ifdef DYNAMIC_TRAINER_LEVELS
 
 // EWRAM vars
 EWRAM_DATA u16 gBattle_BG0_X = 0;
@@ -1803,9 +1809,6 @@ static void sub_8038538(struct Sprite *sprite)
     }
 }
 
-
-#define DYNAMIC_TRAINER_LEVELS
-
 static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 firstTrainer)
 {
     u32 nameHash = 0;
@@ -1984,16 +1987,27 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
                 {
                     u16 level;
+                    u16 species;
                     #ifdef DYNAMIC_TRAINER_LEVELS
                     if (partyData[i].lvl < dynamicLevel)
                     {
                         level = dynamicLevel;
+
+                        if (HasLevelEvolution(partyData[i].species, dynamicLevel))
+                        {
+                            species = HasLevelEvolution(partyData[i].species, dynamicLevel);
+                        }
+                        else
+                        {
+                            species = partyData[i].species;
+                        }
                     } else
                     #endif // #ifdef DYNAMIC_TRAINER_LEVELS
                     {
                         level = partyData[i].lvl;
+                        species = partyData[i].species;
                     }
-                    CreateMon(&party[i], partyData[i].species, level, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                    CreateMon(&party[i], species, level, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
                 }
 
                 break;
@@ -2061,6 +2075,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
     return gTrainers[trainerNum].partySize;
 }
+
 
 void VBlankCB_Battle(void)
 {
@@ -5839,3 +5854,21 @@ static void HandleAction_ActionFinished(void)
     gBattleScripting.multihitMoveEffect = 0;
     gBattleResources->battleScriptsStack->size = 0;
 }
+
+#ifdef DYNAMIC_TRAINER_LEVELS
+u16 HasLevelEvolution(u16 species, u8 level)
+{
+    if (gEvolutionTable[species][0].param && gEvolutionTable[species][0].param <= level)
+    {
+        if (HasLevelEvolution(gEvolutionTable[species][0].targetSpecies, level))
+            return HasLevelEvolution(gEvolutionTable[species][0].targetSpecies, level);
+        else
+            return gEvolutionTable[species][0].targetSpecies;
+    }
+    return 0;
+}
+#endif // #ifdef DYNAMIC_TRAINER_LEVELS
+
+#ifdef DYNAMIC_TRAINER_LEVELS
+#undef DYNAMIC_TRAINER_LEVELS
+#endif // #ifdef DYNAMIC_TRAINER_LEVELS
