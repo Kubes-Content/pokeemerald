@@ -23,6 +23,27 @@
       "elevation": 0,
       "dest_map": "MAP_LEFT_GYM_1F",
       "dest_warp_id": 0
+    },
+    {
+      "x": 5,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_LEFT_GYM_1F",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 12,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_LEFT_GYM_1F",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 35,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_LEFT_GYM_1F",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [

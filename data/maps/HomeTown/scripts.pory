@@ -1,0 +1,23 @@
+mapscripts HomeTown_MapScripts {
+
+}
+
+script HomeTown_Test0 {
+    lock
+    applymovement(1, Test0Movement)
+    waitmovement(0)
+    msgbox(Test0Text)
+    release
+    end
+}
+
+text Test0Text {
+    format("Derp! Am I working?\nHi!")
+}
+
+movement Test0Movement {
+    walk_right
+    walk_right
+    walk_right
+    step_end
+}
